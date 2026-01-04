@@ -19,8 +19,8 @@ export default function Homepage() {
                         Free, Simple Tax Help for the UMD Community.
                       </h1>
                       <h2 className="text-text-primary/80 text-base font-normal leading-normal @[480px]:text-lg @[480px]:font-normal @[480px]:leading-normal">
-                        We are a student-run nonprofit dedicated to providing
-                        accessible tax assistance and empowering our community.
+                      We are a non-profit affiliated with UMD.
+                      Under the guidance of Professor Samuel Handwerger, CPA, TerpTax provides free tax preparation services to low to mid-income individuals in the University of Maryland, College Park community according to VITA/TCE guidelines. We will be taking appointments from February 10, 2026, through April 14, 2026.
                       </h2>
                     </div>
                     <button className="flex w-fit min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-opacity-90 transition-opacity">
@@ -33,7 +33,7 @@ export default function Homepage() {
                     className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full"
                     data-alt="A diverse group of students collaborating in a friendly environment."
                     style={{
-                      backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuD7UsMVvKg9EXrRj4faz6KimK02WyVQOw5INoibsuFbUzs-aZKmJ7ZLoa5RmHbf5DpQ3cMBJhEMHJjkg8Fokw4eiLF7EFMKmkPoRFhp1rTmUFm00KIKH2N0WynmZwUaRhLXu_FvnP0q3ZfoE7I2twl0BtCqwIewVxs64hQ_6rawopX49RwyxlebXWlDJuh4HGW16NZWMRRvCWufEYnbkpSq8OWRsY96f7eYVADJVP9FFvoU9E-U7mE5qgMF1l4kDdtnRdc692yzm8FG")`,
+                      backgroundImage: `url("/accountant.webp")`,
                     }}
                   ></div>
                 </div>

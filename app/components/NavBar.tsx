@@ -84,6 +84,16 @@ export default function NavBar() {
             >
               Resources
             </Link>
+            <Link
+              className={`text-sm font-medium leading-normal transition-colors ${
+                pathname === "/self-prep"
+                  ? "text-primary font-bold"
+                  : "text-text-primary hover:text-primary"
+              }`}
+              href="/self-prep"
+            >
+              Self-Prep
+            </Link>
           </div>
           <Link
             href="/booking"
@@ -151,6 +161,17 @@ export default function NavBar() {
             onClick={closeMenu}
           >
             Resources
+          </Link>
+          <Link
+            className={`text-sm font-medium leading-normal px-2 py-2 transition-colors ${
+              pathname === "/self-prep"
+                ? "text-primary font-bold"
+                : "text-text-primary hover:text-primary"
+            }`}
+            href="/self-prep"
+            onClick={closeMenu}
+          >
+            Self-Prep
           </Link>
           <Link
             href="/booking"

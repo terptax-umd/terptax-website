@@ -11,7 +11,7 @@ interface Resource {
   title: string;
   link: string;
   description: string;
-  category: "Tax Forms" | "Helpful Guides" | "External Links" | "FAQs" | "Videos";
+  category: "Tax Forms" | "Helpful Guides" | "External Links" | "FAQs" | "TerpTax";
   icon: string;
   actionText: string;
   type?: "link" | "video";
@@ -171,16 +171,38 @@ const resources: Resource[] = [
   },
   {
     id: "16",
-    title: "How to File Your Taxes - Video Guide",
+    title: "Report of Foreign Bank and Financial Accounts (FBAR)",
     link: "https://vimeo.com/572269830",
     description:
-      "A comprehensive video guide on how to file your taxes step by step.",
-    category: "Videos",
+      "FBAR and Transitioning to Alien Resident Status",
+    category: "TerpTax",
     icon: "play_circle",
     actionText: "Watch Video",
     type: "video",
     videoId: "572269830",
   },
+  {
+    id: "17",
+    title: "Filing an extension for free",
+    link: "https://vimeo.com/697764445",
+    description: "Filing an extension for free",
+    category: "TerpTax",
+    icon: "play_circle",
+    actionText: "Watch Video",
+    type: "video",
+    videoId: "697764445",
+  },
+  {
+    id: "18",
+    title: "Taxation of Scholarships, Grants, and Fellowships",
+    link: "https://vimeo.com/578080980",
+    description: "Taxation of Scholarships, Grants, and Fellowships",
+    category: "TerpTax",
+    icon: "play_circle",
+    actionText: "Watch Video",
+    type: "video",
+    videoId: "578080980",
+  }
 ];
 
 const categories: Resource["category"][] = [
@@ -188,7 +210,7 @@ const categories: Resource["category"][] = [
   "Helpful Guides",
   "External Links",
   "FAQs",
-  "Videos",
+  "TerpTax",
 ];
 
 // Helper function to extract Vimeo video ID from URL
