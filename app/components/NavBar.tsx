@@ -21,23 +21,6 @@ export default function NavBar() {
     <header className="flex flex-col items-stretch whitespace-nowrap border-b border-solid border-b-slate-200 px-4 md:px-10 py-3 fixed top-0 left-0 right-0 bg-background-light z-50">
       <div className="flex items-center justify-between">
         <Link href="/" className="flex items-center gap-4 text-text-primary">
-          {/* <div className="size-6 text-primary">
-            <svg
-              fill="none"
-              viewBox="0 0 48 48"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clipRule="evenodd"
-                d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z"
-                fill="currentColor"
-                fillRule="evenodd"
-              />
-            </svg>
-          </div>
-          <h2 className="text-text-primary text-xl font-bold leading-tight tracking-[-0.015em]">
-            TerpTax
-          </h2> */}
           <Image src="/logo.png" alt="TerpTax Logo" width={100} height={50} />
         </Link>
 

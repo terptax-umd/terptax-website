@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Script from "next/script";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Link from "next/link";
@@ -70,9 +71,7 @@ function DocumentListItem({
                   {subItem.required && (
                     <span className="text-red-600 font-semibold text-sm whitespace-nowrap">
                       *REQUIRED
-                      {subItem.requiredNote
-                        ? ` ${subItem.requiredNote}`
-                        : ""}
+                      {subItem.requiredNote ? ` ${subItem.requiredNote}` : ""}
                     </span>
                   )}
                 </div>
@@ -216,7 +215,9 @@ export default function BookingPage() {
 
           {/* Important Information Banner */}
           <div className="bg-green-50 border border-green-300 rounded-lg p-4 mb-8">
-            <h3 className="font-bold text-green-700 mb-2">Before You Schedule</h3>
+            <h3 className="font-bold text-green-700 mb-2">
+              Before You Schedule
+            </h3>
             <p className="text-sm text-text-primary/80 mb-3">
               Determine your filing status as this will determine what documents
               will be necessary for you to complete your appointment. When you
@@ -258,7 +259,10 @@ export default function BookingPage() {
               className="flex min-w-[84px] max-w-[480px] mx-auto cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-green-100 text-green-700 text-base font-bold leading-normal tracking-[0.015em] hover:bg-green-200 transition-colors"
             >
               <span className="truncate flex items-center gap-2">
-                <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: 20 }}
+                >
                   description
                 </span>
                 View Required Documents
@@ -295,8 +299,8 @@ export default function BookingPage() {
                 </div>
                 <div className="p-6">
                   <p className="text-text-primary/80 mb-4">
-                    Please upload the following documents. All documents should be
-                    in PDF format for upload.
+                    Please upload the following documents. All documents should
+                    be in PDF format for upload.
                   </p>
 
                   {/* Tabs */}
@@ -359,22 +363,31 @@ export default function BookingPage() {
               <h2 className="text-2xl font-bold leading-tight tracking-[-0.015em] text-text-primary mb-4">
                 Schedule Your Appointment
               </h2>
-              {/* Replace this div with your Acuity Scheduling embed code */}
-              {/* See integration instructions below */}
-              <div
-                id="acuity-scheduling"
-                className="acuity-scheduling-container"
-              >
-                {/* Acuity Scheduling embed will go here */}
-                <div className="border-2 border-dashed border-slate-300 rounded-lg p-12 text-center bg-slate-50">
-                  <p className="text-text-primary/70 mb-4">
-                    Acuity Scheduling widget will be embedded here
-                  </p>
-                  <p className="text-sm text-text-primary/60">
-                    The Acuity Scheduling calendar will appear in this section to
-                    allow you to select your preferred date and time.
-                  </p>
-                </div>
+              {/* Acuity Scheduling Embed */}
+              <Script
+                src="https://embed.acuityscheduling.com/js/embed.js"
+                strategy="lazyOnload"
+              />
+              <div className="acuity-scheduling-container rounded-lg overflow-hidden">
+                {process.env.NEXT_PUBLIC_ACUITY_USER_ID ? (
+                  <iframe
+                    src={`https://app.acuityscheduling.com/schedule.php?owner=${process.env.NEXT_PUBLIC_ACUITY_USER_ID}`}
+                    title="Schedule Appointment"
+                    width="100%"
+                    height="800"
+                    frameBorder="0"
+                    className="w-full"
+                  />
+                ) : (
+                  <div className="border-2 border-dashed border-slate-300 rounded-lg p-12 text-center bg-slate-50">
+                    <p className="text-text-primary/70 mb-2">
+                      Acuity Scheduling is not configured
+                    </p>
+                    <p className="text-sm text-text-primary/60">
+                      Please add NEXT_PUBLIC_ACUITY_USER_ID to your .env file
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -390,7 +403,9 @@ export default function BookingPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {teamLeaders.map((leader, index) => (
                   <div key={index}>
-                    <p className="font-medium text-text-primary">{leader.name}</p>
+                    <p className="font-medium text-text-primary">
+                      {leader.name}
+                    </p>
                     <a
                       href={`mailto:${leader.email}`}
                       className="text-sm text-primary hover:underline"
@@ -408,4 +423,3 @@ export default function BookingPage() {
     </div>
   );
 }
-

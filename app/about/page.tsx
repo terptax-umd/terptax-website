@@ -5,6 +5,38 @@ import Footer from "../components/Footer";
 import Link from "next/link";
 import vmh from "@/public/vmh.jpg";
 
+interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
+}
+const teamMembers: TeamMember[] = [
+  {
+    name: "Jane Doe",
+    role: "Executive Director",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCWQpZG8CfLVIONYt5mxRUV4ZfS4KQq8iJlEEdT_9m6Y3ecNIptSSpq36cN__fxd-yNnX26IX3hCj8C64T2JguzaQc-S5uobnZ9rf44Ne_IuStiLQnQVmT65Je8K6S4HpREjZbd3F4M6343mX_dY3T0epNWLnZDGIlkrRmbeRlp4b0ZzgMk65iwr75mIZtQGb_et0enVOXcunFCUowTChrlw9-pp-vkhXiNGCvxLeinmaMn_8onO5-t_medEUUgqG-axgd42xwrg5v5",
+  },
+  {
+    name: "John Smith",
+    role: "Volunteer Coordinator",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDurTuecK81f8to6L6xc_ARf6gsZLRsxaMUPjU6cgKwlp2oa_EXCnvJAzdwzsDEa8GBtnnun8j6CSJdrywn6pQCAXeGPgb1DyttHvfnSRJXzqdbP-yhqFtYOrDI7yEKVZ8GEeVUcTI-SI3K_8-qzqdgpXx0kHKre-PIbq1gceOdh3Fcy3Ni6eTmfLS-QSITiLXytNxRQLKyKwDrzKUQuu7f6T7GLEaW5reOaeKUjcHU7M1IIWbV-3aJdcr0gRW-BZyiZCfy4DCFHyUm",
+  },
+  {
+    name: "Michael Chen",
+    role: "Faculty Advisor",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAANuHEdaoRzFmheDP7dzUJjFuCANmfxr7Y_8tm6rn33aRApDdD8BcXk_kBKOuiiy_QT0LGjdONGdcka5oyzBORL0g-duHDK4d-J7NgZCuFre1WAriCvDUlaGJ1vXjcfl_zSe6AGuv1ls_jOqr8OKq9hbnHKs02_3DQCuylpvC1yr0fkgut-ew6FT2uPgfoq3Z2C9X29R7j-UqsWkfnqZT1CcKZ1llgEpdBOV4HPA-L9r-lvsLkqCcHd93FOIGXty6tKamQi_CYeN15",
+  },
+  {
+    name: "Sarah Lee",
+    role: "Lead Tax Preparer",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBUmYlRchQ7qcBx6y5zg5NKgTsZYgGXZEB0jTCGeFc25Y7SyyUuKAkjOmBtKPVO4mxADQ_Zf9RuQCpyBVT3KGsiJ2LuO1T7bxQ-vkK6IoE9Gy4pcxujXCdqj0smPjFFa9MN5UgApvOYDg1I84bYMi48vblbVi02X9KUoDus0FsaohBXU8j62-KfWjCSP9wcmKB9uEdCOH2aH16ACEup_XP9rKOP_k0rALrpqL3w6NWAK0Guol2XasQ0TEDw6yAseuRZ4pXLl5KAig-B",
+  },
+];
+
 export default function AboutPage() {
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col pt-16">
@@ -120,7 +152,7 @@ export default function AboutPage() {
             <div className="relative mt-12">
               <div
                 aria-hidden="true"
-                className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-slate-300"
+                className="absolute left-4 top-0 h-full w-0.5 bg-slate-300 sm:left-1/2 sm:-translate-x-1/2"
               ></div>
               <div className="space-y-12">
                 {/* Timeline Item 1 */}
@@ -136,8 +168,8 @@ export default function AboutPage() {
                       </p>
                     </div>
                   </div>
-                  <div className="absolute left-1/2 top-1/2 z-10 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary"></div>
-                  <div className="w-full sm:w-1/2 sm:pl-8">
+                  <div className="absolute left-4 top-1/2 z-10 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary sm:left-1/2"></div>
+                  <div className="w-full pl-12 sm:w-1/2 sm:pl-8">
                     <div className="sm:hidden">
                       <p className="font-bold text-lg text-text-primary">
                         Founded in 2018
@@ -152,7 +184,7 @@ export default function AboutPage() {
 
                 {/* Timeline Item 2 */}
                 <div className="relative flex items-center">
-                  <div className="w-full sm:w-1/2 sm:pr-8 text-left sm:text-right">
+                  <div className="w-full pl-12 sm:w-1/2 sm:pr-8 text-left sm:text-right">
                     <div className="sm:hidden">
                       <p className="font-bold text-lg text-text-primary">
                         100 Returns Filed
@@ -163,7 +195,7 @@ export default function AboutPage() {
                       </p>
                     </div>
                   </div>
-                  <div className="absolute left-1/2 top-1/2 z-10 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary"></div>
+                  <div className="absolute left-4 top-1/2 z-10 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary sm:left-1/2"></div>
                   <div className="hidden sm:flex sm:w-1/2 sm:pl-8">
                     <div>
                       <p className="font-bold text-lg text-text-primary">
@@ -190,8 +222,8 @@ export default function AboutPage() {
                       </p>
                     </div>
                   </div>
-                  <div className="absolute left-1/2 top-1/2 z-10 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary"></div>
-                  <div className="w-full sm:w-1/2 sm:pl-8">
+                  <div className="absolute left-4 top-1/2 z-10 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary sm:left-1/2"></div>
+                  <div className="w-full pl-12 sm:w-1/2 sm:pl-8">
                     <div className="sm:hidden">
                       <p className="font-bold text-lg text-text-primary">
                         Expanded Services
@@ -219,68 +251,22 @@ export default function AboutPage() {
             </p>
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
               {/* Team Member Card */}
-              <div className="flex flex-col items-center">
-                <Image
-                  className="h-32 w-32 rounded-full object-cover"
-                  alt="Professional headshot of Jane Doe"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWQpZG8CfLVIONYt5mxRUV4ZfS4KQq8iJlEEdT_9m6Y3ecNIptSSpq36cN__fxd-yNnX26IX3hCj8C64T2JguzaQc-S5uobnZ9rf44Ne_IuStiLQnQVmT65Je8K6S4HpREjZbd3F4M6343mX_dY3T0epNWLnZDGIlkrRmbeRlp4b0ZzgMk65iwr75mIZtQGb_et0enVOXcunFCUowTChrlw9-pp-vkhXiNGCvxLeinmaMn_8onO5-t_medEUUgqG-axgd42xwrg5v5"
-                  width={128}
-                  height={128}
-                  unoptimized
-                />
-                <h3 className="mt-4 text-lg font-bold text-text-primary">
-                  Jane Doe
-                </h3>
-                <p className="text-sm text-primary">Executive Director</p>
-              </div>
-
-              {/* Team Member Card */}
-              <div className="flex flex-col items-center">
-                <Image
-                  className="h-32 w-32 rounded-full object-cover"
-                  alt="Professional headshot of John Smith"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDurTuecK81f8to6L6xc_ARf6gsZLRsxaMUPjU6cgKwlp2oa_EXCnvJAzdwzsDEa8GBtnnun8j6CSJdrywn6pQCAXeGPgb1DyttHvfnSRJXzqdbP-yhqFtYOrDI7yEKVZ8GEeVUcTI-SI3K_8-qzqdgpXx0kHKre-PIbq1gceOdh3Fcy3Ni6eTmfLS-QSITiLXytNxRQLKyKwDrzKUQuu7f6T7GLEaW5reOaeKUjcHU7M1IIWbV-3aJdcr0gRW-BZyiZCfy4DCFHyUm"
-                  width={128}
-                  height={128}
-                  unoptimized
-                />
-                <h3 className="mt-4 text-lg font-bold text-text-primary">
-                  John Smith
-                </h3>
-                <p className="text-sm text-primary">Volunteer Coordinator</p>
-              </div>
-
-              {/* Team Member Card */}
-              <div className="flex flex-col items-center">
-                <Image
-                  className="h-32 w-32 rounded-full object-cover"
-                  alt="Professional headshot of Michael Chen"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAANuHEdaoRzFmheDP7dzUJjFuCANmfxr7Y_8tm6rn33aRApDdD8BcXk_kBKOuiiy_QT0LGjdONGdcka5oyzBORL0g-duHDK4d-J7NgZCuFre1WAriCvDUlaGJ1vXjcfl_zSe6AGuv1ls_jOqr8OKq9hbnHKs02_3DQCuylpvC1yr0fkgut-ew6FT2uPgfoq3Z2C9X29R7j-UqsWkfnqZT1CcKZ1llgEpdBOV4HPA-L9r-lvsLkqCcHd93FOIGXty6tKamQi_CYeN15"
-                  width={128}
-                  height={128}
-                  unoptimized
-                />
-                <h3 className="mt-4 text-lg font-bold text-text-primary">
-                  Michael Chen
-                </h3>
-                <p className="text-sm text-primary">Faculty Advisor</p>
-              </div>
-
-              {/* Team Member Card */}
-              <div className="flex flex-col items-center">
-                <Image
-                  className="h-32 w-32 rounded-full object-cover"
-                  alt="Professional headshot of Sarah Lee"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUmYlRchQ7qcBx6y5zg5NKgTsZYgGXZEB0jTCGeFc25Y7SyyUuKAkjOmBtKPVO4mxADQ_Zf9RuQCpyBVT3KGsiJ2LuO1T7bxQ-vkK6IoE9Gy4pcxujXCdqj0smPjFFa9MN5UgApvOYDg1I84bYMi48vblbVi02X9KUoDus0FsaohBXU8j62-KfWjCSP9wcmKB9uEdCOH2aH16ACEup_XP9rKOP_k0rALrpqL3w6NWAK0Guol2XasQ0TEDw6yAseuRZ4pXLl5KAig-B"
-                  width={128}
-                  height={128}
-                  unoptimized
-                />
-                <h3 className="mt-4 text-lg font-bold text-text-primary">
-                  Sarah Lee
-                </h3>
-                <p className="text-sm text-primary">Lead Tax Preparer</p>
-              </div>
+              {teamMembers.map((member) => (
+                <div key={member.name} className="flex flex-col items-center">
+                  <Image
+                    className="h-32 w-32 rounded-full object-cover"
+                    alt={`Professional headshot of ${member.name}`}
+                    src={member.image}
+                    width={128}
+                    height={128}
+                    unoptimized
+                  />
+                  <h3 className="mt-4 text-lg font-bold text-text-primary">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-primary">{member.role}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

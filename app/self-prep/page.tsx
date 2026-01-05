@@ -168,7 +168,7 @@ export default function SelfPrepPage() {
                           Location
                         </h2>
                         <p className="text-text-primary/70 text-sm font-normal leading-normal">
-                          VMH 3505
+                          {`VMH (Van Munching Hall) 3505`}
                         </p>
                       </div>
                     </div>

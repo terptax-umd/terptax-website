@@ -8,21 +8,6 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="flex flex-col gap-4 md:col-span-2">
           <div className="flex items-center gap-2">
-            {/* <div className="size-5 text-primary"> */}
-            {/* <svg
-                fill="none"
-                viewBox="0 0 48 48"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clipRule="evenodd"
-                  d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z"
-                  fill="currentColor"
-                  fillRule="evenodd"
-                />
-              </svg>
-            </div>
-            <h3 className="text-lg font-bold text-text-primary">TerpTax</h3> */}
             <Image src="/logo.png" alt="TerpTax Logo" width={100} height={50} />
           </div>
           <p className="text-sm text-text-primary/70 max-w-sm">

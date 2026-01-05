@@ -38,16 +38,16 @@ const faqData: FAQ[] = [
   },
   {
     id: "4",
-    question: "What is the deadline for filing my 2024 tax return?",
+    question: "What is the deadline for filing my 2025 tax return?",
     answer:
-      "The deadline for filing your 2024 Federal Tax Return is Monday, April 15, 2025. If mailing your return, it must be postmarked by 11:59 pm on that day.",
+      "The deadline for filing your 2025 Federal Tax Return is Monday, April 15, 2026. If mailing your return, it must be postmarked by 11:59 pm on that day.",
     category: "tax-basics",
   },
   {
     id: "5",
     question: "What forms do I need to file my Federal tax return?",
     answer:
-      "If you were working (ex: graduate assistantship, hourly on-campus position) in 2024, you will be sent a W-2 statement (by January 31). For Non-resident Aliens: If you received a scholarship/fellowship OR you are claiming a tax exemption due to a TAX TREATY in 2023, you will be sent a 1042-S Form (by March 15). If you need to request a Duplicate W-2 or 1042-S, go to Central Payroll Bureau's Payroll Services for State Agencies website and follow the instructions.",
+      "If you were working (ex: graduate assistantship, hourly on-campus position) in 2025, you will be sent a W-2 statement (by January 31). For Non-resident Aliens: If you received a scholarship/fellowship OR you are claiming a tax exemption due to a TAX TREATY in 2023, you will be sent a 1042-S Form (by March 15). If you need to request a Duplicate W-2 or 1042-S, go to Central Payroll Bureau's Payroll Services for State Agencies website and follow the instructions.",
     category: "tax-basics",
   },
   {
