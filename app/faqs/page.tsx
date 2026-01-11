@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Link from "next/link";

@@ -1,17 +1,23 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+// Keep forms, 
 interface Resource {
   id: string;
   title: string;
   link: string;
   description: string;
-  category: "Tax Forms" | "Helpful Guides" | "External Links" | "FAQs" | "TerpTax";
+  category:
+    | "Tax Forms"
+    | "Helpful Guides"
+    | "External Links"
+    | "FAQs"
+    | "TerpTax";
   icon: string;
   actionText: string;
   type?: "link" | "video";
@@ -21,13 +27,13 @@ interface Resource {
 const resources: Resource[] = [
   {
     id: "1",
-    title: "Form 1040 (2023)",
+    title: "Form 1040",
     link: "https://www.irs.gov/pub/irs-pdf/f1040.pdf",
     description:
       "U.S. Individual Income Tax Return, the main form for filing your federal taxes.",
     category: "Tax Forms",
     icon: "description",
-    actionText: "Download",
+    actionText: "View Form",
   },
   {
     id: "2",
@@ -41,23 +47,23 @@ const resources: Resource[] = [
   },
   {
     id: "3",
-    title: "IRS Website",
-    link: "https://www.irs.gov",
+    title: "Exempt individual – Who is a student",
+    link: "https://www.irs.gov/individuals/international-taxpayers/exempt-individual-who-is-a-student",
     description:
-      "The official source for federal tax information, forms, and publications.",
-    category: "External Links",
-    icon: "open_in_new",
-    actionText: "Visit Site",
+      "A guide to understanding who is a student and how to claim the student exemption.",
+    category: "Helpful Guides",
+    icon: "description",
+    actionText: "View Guide",
   },
   {
     id: "4",
-    title: "Appointment Checklist",
-    link: "#",
+    title: "IRS 4011",
+    link: "https://www.irs.gov/pub/irs-pdf/p4011.pdf",
     description:
-      "What to bring with you to your tax preparation appointment with us.",
-    category: "Helpful Guides",
-    icon: "checklist",
-    actionText: "Download",
+      "VITA/TCE Foreign Student and Scholar Volunteer Resource Guide",
+    category: "FAQs",
+    icon: "description",
+    actionText: "View Guide",
   },
   {
     id: "5",
@@ -67,7 +73,7 @@ const resources: Resource[] = [
       "Answers to common questions about choosing the right filing status.",
     category: "FAQs",
     icon: "quiz",
-    actionText: "Read More",
+    actionText: "Learn More",
   },
   {
     id: "6",
@@ -106,7 +112,7 @@ const resources: Resource[] = [
       "Learn about standard deductions and when to itemize your deductions.",
     category: "Helpful Guides",
     icon: "info",
-    actionText: "Read More",
+    actionText: "Learn More",
   },
   {
     id: "10",
@@ -126,7 +132,7 @@ const resources: Resource[] = [
       "Education Credits form for American Opportunity and Lifetime Learning Credits.",
     category: "Tax Forms",
     icon: "description",
-    actionText: "Download",
+    actionText: "View Form",
   },
   {
     id: "12",
@@ -150,31 +156,19 @@ const resources: Resource[] = [
   },
   {
     id: "14",
-    title: "Dependent Exemptions FAQ",
-    link: "https://www.irs.gov/help/ita/can-i-claim-my-child-as-a-dependent",
+    title: "Substance Presence Test - Decision Tree",
+    link: "https://www.irs.gov/pub/irs-pdf/p4011.pdf#page=8",
     description:
-      "Common questions about claiming dependents on your tax return.",
+      "Are you temporarily present in the United States?",
     category: "FAQs",
     icon: "quiz",
-    actionText: "Read More",
-  },
-  {
-    id: "15",
-    title: "Form 1099-NEC",
-    link: "https://www.irs.gov/forms-pubs/about-form-1099-nec",
-    description:
-      "Nonemployee Compensation form for independent contractors and freelancers.",
-    category: "Tax Forms",
-    icon: "description",
-    actionText: "View Form",
-    type: "link",
+    actionText: "View Decision Tree",
   },
   {
     id: "16",
     title: "Report of Foreign Bank and Financial Accounts (FBAR)",
     link: "https://vimeo.com/572269830",
-    description:
-      "FBAR and Transitioning to Alien Resident Status",
+    description: "FBAR and Transitioning to Alien Resident Status",
     category: "TerpTax",
     icon: "play_circle",
     actionText: "Watch Video",
@@ -202,7 +196,35 @@ const resources: Resource[] = [
     actionText: "Watch Video",
     type: "video",
     videoId: "578080980",
-  }
+  },
+  {
+    id: "19",
+    title: "Assistance with Tax Controvery Cases",
+    link: "https://www.law.umaryland.edu/Programs-and-Impact/Clinical-Law/Requests-for-assistance/Low-Income-Taxpayer-Clinic/",
+    description:
+      "if you owe the IRS, here is some help. Please contact UMD Law School in Baltimore for assistance. The link will lead you to their site",
+    category: "External Links",
+    icon: "open_in_new",
+    actionText: "Visit Site",
+  },
+  {
+    id: "20",
+    title: "Form 1042-S",
+    link: "https://www.irs.gov/pub/irs-pdf/f1042s.pdf",
+    description: "Foreign Person's U.S. Source Income Subject to Withholding",
+    category: "Tax Forms",
+    icon: "description",
+    actionText: "View Form",
+  },
+  {
+    id: "21",
+    title: "Foreign Students, Scholars, Teachers, Researchers, and Exchange Visitors",
+    link: "https://www.irs.gov/individuals/international-taxpayers/foreign-students-scholars-teachers-researchers-and-exchange-visitors",
+    description: "Information for foreign students, scholars, teachers, researchers, and exchange visitors.",
+    category: "Helpful Guides",
+    icon: "description",
+    actionText: "View Guide",
+  },
 ];
 
 const categories: Resource["category"][] = [
@@ -347,7 +369,8 @@ export default function ResourcesPage() {
                 <div
                   key={resource.id}
                   className={`flex flex-col rounded-xl border border-slate-200 bg-background-light p-6 shadow-sm transition-shadow ${
-                    (resource.type === "video" || resource.link.includes("vimeo.com")) &&
+                    (resource.type === "video" ||
+                      resource.link.includes("vimeo.com")) &&
                     getVideoId(resource)
                       ? "hover:shadow-lg lg:col-span-3"
                       : "hover:shadow-lg"
@@ -366,7 +389,8 @@ export default function ResourcesPage() {
                   <p className="text-sm text-text-primary/70 mb-6 flex-grow">
                     {resource.description}
                   </p>
-                  {(resource.type === "video" || resource.link.includes("vimeo.com")) &&
+                  {(resource.type === "video" ||
+                    resource.link.includes("vimeo.com")) &&
                   getVideoId(resource) ? (
                     <div className="mt-auto mb-4">
                       <VimeoEmbed videoId={getVideoId(resource)!} />

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Script from "next/script";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -15,6 +15,22 @@ interface DocumentItem {
   requiredNote?: string;
   subItems?: DocumentItem[];
 }
+
+// Team Leader Contact Information
+interface TeamLeader {
+  name: string;
+  email: string;
+}
+
+const teamLeaders: TeamLeader[] = [
+  { name: "Hurjus", email: "htaneja@terpmail.umd.edu" },
+  { name: "Joie", email: "Jsung123@terpmail.umd.edu" },
+  { name: "Joy", email: "jchen148@terpmail.umd.edu" },
+  { name: "Julia", email: "jhuang31@terpmail.umd.edu" },
+  { name: "Tobias", email: "Twiggins@terpmail.umd.edu" },
+  { name: "Tyler", email: "tjones77@terpmail.umd.edu" },
+  { name: "KP", email: "naingkpm@terpmail.umd.edu" },
+];
 
 // Component to render a document item
 function DocumentListItem({
@@ -125,22 +141,6 @@ const residentDocuments: DocumentItem[] = [
   {
     text: "I-94 full travel history (this applies to resident aliens who are international students - it helps us verify whether or not they actually are resident aliens)",
   },
-];
-
-// Team Leader Contact Information
-interface TeamLeader {
-  name: string;
-  email: string;
-}
-
-const teamLeaders: TeamLeader[] = [
-  { name: "Hurjus", email: "htaneja@terpmail.umd.edu" },
-  { name: "Joie", email: "Jsung123@terpmail.umd.edu" },
-  { name: "Joy", email: "jchen148@terpmail.umd.edu" },
-  { name: "Julia", email: "jhuang31@terpmail.umd.edu" },
-  { name: "Tobias", email: "Twiggins@terpmail.umd.edu" },
-  { name: "Tyler", email: "tjones77@terpmail.umd.edu" },
-  { name: "KP", email: "naingkpm@terpmail.umd.edu" },
 ];
 
 // Documents for Non-Resident Aliens
@@ -369,25 +369,14 @@ export default function BookingPage() {
                 strategy="lazyOnload"
               />
               <div className="acuity-scheduling-container rounded-lg overflow-hidden">
-                {process.env.NEXT_PUBLIC_ACUITY_USER_ID ? (
-                  <iframe
-                    src={`https://app.acuityscheduling.com/schedule.php?owner=${process.env.NEXT_PUBLIC_ACUITY_USER_ID}`}
-                    title="Schedule Appointment"
-                    width="100%"
-                    height="800"
-                    frameBorder="0"
-                    className="w-full"
-                  />
-                ) : (
-                  <div className="border-2 border-dashed border-slate-300 rounded-lg p-12 text-center bg-slate-50">
-                    <p className="text-text-primary/70 mb-2">
-                      Acuity Scheduling is not configured
-                    </p>
-                    <p className="text-sm text-text-primary/60">
-                      Please add NEXT_PUBLIC_ACUITY_USER_ID to your .env file
-                    </p>
-                  </div>
-                )}
+                <iframe
+                  src={`https://app.acuityscheduling.com/schedule.php?owner=${process.env.NEXT_PUBLIC_ACUITY_USER_ID}`}
+                  title="Schedule Appointment"
+                  width="100%"
+                  height="800"
+                  frameBorder="0"
+                  className="w-full"
+                />
               </div>
             </div>
 

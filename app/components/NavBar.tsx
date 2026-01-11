@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
@@ -25,7 +25,7 @@ export default function NavBar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex flex-1 justify-end gap-8">
+        <div className="hidden lg:flex flex-1 justify-end gap-8">
           <div className="flex items-center gap-9">
             <Link
               className={`text-sm font-medium leading-normal transition-colors ${
@@ -77,6 +77,26 @@ export default function NavBar() {
             >
               Self-Prep
             </Link>
+            <Link
+              className={`text-sm font-medium leading-normal transition-colors ${
+                pathname === "/memos"
+                  ? "text-primary font-bold"
+                  : "text-text-primary hover:text-primary"
+              }`}
+              href="/memos"
+            >
+              Memos
+            </Link>
+            <Link
+              className={`text-sm font-medium leading-normal transition-colors ${
+                pathname === "/admin"
+                  ? "text-primary font-bold"
+                  : "text-text-primary hover:text-primary"
+              }`}
+              href="/admin"
+            >
+              Admin
+            </Link>
           </div>
           <Link
             href="/booking"
@@ -89,7 +109,7 @@ export default function NavBar() {
         {/* Mobile Burger Menu Button */}
         <button
           onClick={toggleMenu}
-          className="flex md:hidden min-w-[40px] max-w-[40px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 p-2 bg-transparent text-text-primary text-sm font-bold"
+          className="flex lg:hidden min-w-[40px] max-w-[40px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 p-2 bg-transparent text-text-primary text-sm font-bold"
           aria-label="Toggle menu"
         >
           <span className="material-symbols-outlined">
@@ -100,7 +120,7 @@ export default function NavBar() {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="md:hidden flex flex-col gap-4 py-4 border-t border-slate-200">
+        <div className="lg:hidden flex flex-col gap-4 py-4 border-t border-slate-200">
           <Link
             className={`text-sm font-medium leading-normal px-2 py-2 transition-colors ${
               pathname === "/"
@@ -155,6 +175,28 @@ export default function NavBar() {
             onClick={closeMenu}
           >
             Self-Prep
+          </Link>
+          <Link
+            className={`text-sm font-medium leading-normal px-2 py-2 transition-colors ${
+              pathname === "/memos"
+                ? "text-primary font-bold"
+                : "text-text-primary hover:text-primary"
+            }`}
+            href="/memos"
+            onClick={closeMenu}
+          >
+            Memos
+          </Link>
+          <Link
+            className={`text-sm font-medium leading-normal px-2 py-2 transition-colors ${
+              pathname === "/admin"
+                ? "text-primary font-bold"
+                : "text-text-primary hover:text-primary"
+            }`}
+            href="/admin"
+            onClick={closeMenu}
+          >
+            Admin
           </Link>
           <Link
             href="/booking"
