@@ -87,7 +87,7 @@ export default function NavBar() {
             >
               Memos
             </Link>
-            <Link
+            {/* <Link
               className={`text-sm font-medium leading-normal transition-colors ${
                 pathname === "/admin"
                   ? "text-primary font-bold"
@@ -96,7 +96,7 @@ export default function NavBar() {
               href="/admin"
             >
               Admin
-            </Link>
+            </Link> */}
           </div>
           <Link
             href="/booking"
