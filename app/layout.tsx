@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TerpTax",
+  title: "TerpTax UMD",
   description: "Free tax preparation for the University of Maryland community",
 };
 
