@@ -187,7 +187,7 @@ export default function NavBar() {
           >
             Memos
           </Link>
-          <Link
+          {/* <Link
             className={`text-sm font-medium leading-normal px-2 py-2 transition-colors ${
               pathname === "/admin"
                 ? "text-primary font-bold"
@@ -197,7 +197,7 @@ export default function NavBar() {
             onClick={closeMenu}
           >
             Admin
-          </Link>
+          </Link> */}
           <Link
             href="/booking"
             onClick={closeMenu}

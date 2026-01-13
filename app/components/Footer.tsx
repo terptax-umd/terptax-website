@@ -61,9 +61,12 @@ export default function Footer() {
             University of Maryland, College Park, MD
           </p>
           <div className="flex gap-4 mt-2">
+            {/* Facebook */}
             <a
               className="text-text-primary/70 hover:text-primary"
               href="https://www.facebook.com/MSLCUMD/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <svg
                 fill="none"
@@ -79,9 +82,13 @@ export default function Footer() {
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
               </svg>
             </a>
+
+            {/* Instagram */}
             <a
               className="text-text-primary/70 hover:text-primary"
-              href="https://www.instagram.com/mslc2020/"
+              href="https://www.instagram.com/umdterptax/#"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <svg
                   fill="none"
@@ -106,6 +113,8 @@ export default function Footer() {
                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
               </svg>
             </a>
+
+            {/* LinkedIn */}
             <a
               className="text-text-primary/70 hover:text-primary"
               href="https://www.linkedin.com/company/terptax-inc/"
