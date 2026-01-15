@@ -17,7 +17,14 @@ interface DriveLink {
 export async function GET() {
   try {
     const data = await getFileContent();
-    return NextResponse.json(data, { status: 200 });
+    // Add cache headers to reduce edge invocations
+    // Cache for 5 minutes, allow stale-while-revalidate for 1 hour
+    return NextResponse.json(data, {
+      status: 200,
+      headers: {
+        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=3600',
+      },
+    });
   } catch (error) {
     console.error("Error fetching drive links:", error);
     return NextResponse.json(

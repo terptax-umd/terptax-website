@@ -1,41 +1,9 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { getFileContent, getDriveEmbedUrl } from "../lib/github";
 
-/**
- * Extract Google Drive file ID from various URL formats
- */
-function extractDriveFileId(url: string): string | null {
-  const patterns = [
-    /\/file\/d\/([a-zA-Z0-9_-]+)/,
-    /[?&]id=([a-zA-Z0-9_-]+)/,
-    /\/document\/d\/([a-zA-Z0-9_-]+)/,
-    /\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/,
-    /\/presentation\/d\/([a-zA-Z0-9_-]+)/,
-  ];
-
-  for (const pattern of patterns) {
-    const match = url.match(pattern);
-    if (match && match[1]) {
-      return match[1];
-    }
-  }
-
-  return null;
-}
-
-/**
- * Convert Google Drive URL to embed format
- */
-function getDriveEmbedUrl(url: string): string | null {
-  const fileId = extractDriveFileId(url);
-  if (!fileId) {
-    return null;
-  }
-  return `https://drive.google.com/file/d/${fileId}/preview`;
-}
+// Enable ISR - revalidate every 5 minutes (300 seconds)
+export const revalidate = 300;
 
 interface DriveLink {
   id: string;
@@ -44,30 +12,17 @@ interface DriveLink {
   createdAt: string;
 }
 
-export default function MemosPage() {
-  const [links, setLinks] = useState<DriveLink[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+export default async function MemosPage() {
+  let links: DriveLink[] = [];
+  let error: string | null = null;
 
-  useEffect(() => {
-    fetchLinks();
-  }, []);
-
-  const fetchLinks = async () => {
-    try {
-      const response = await fetch("/api/drive-links");
-      if (!response.ok) {
-        throw new Error("Failed to fetch memos");
-      }
-      const data = await response.json();
-      setLinks(data.links || []);
-    } catch (err) {
-      console.error("Error fetching links:", err);
-      setError("Failed to load memos. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  try {
+    const data = await getFileContent();
+    links = data.links || [];
+  } catch (err) {
+    console.error("Error fetching links:", err);
+    error = "Failed to load memos. Please try again later.";
+  }
 
   return (
     <div className="relative flex min-h-screen w-full flex-col pt-16">
@@ -84,11 +39,7 @@ export default function MemosPage() {
             </p>
           </div>
 
-          {loading ? (
-            <div className="text-center py-16">
-              <p className="text-text-primary/70">Loading documents...</p>
-            </div>
-          ) : error ? (
+          {error ? (
             <div className="bg-red-50 border border-red-200 rounded-xl p-6 text-center">
               <p className="text-red-700">{error}</p>
             </div>

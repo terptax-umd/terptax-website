@@ -52,7 +52,7 @@ export async function getFileContent(): Promise<DriveLinksData> {
       Authorization: `token ${token}`,
       Accept: "application/vnd.github.v3+json",
     },
-    next: { revalidate: 0 }, // Always fetch fresh data
+    next: { revalidate: 300 }, // Revalidate every 5 minutes (matches page ISR)
   });
 
   if (!response.ok) {
