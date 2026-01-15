@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { requireAuth, verifySession } from "@/app/lib/auth";
+import { requireAuth } from "@/app/lib/auth";
 import {
   getFileContent,
   updateFileContent,
@@ -22,7 +22,7 @@ export async function GET() {
     return NextResponse.json(data, {
       status: 200,
       headers: {
-        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=3600',
+        "Cache-Control": "public, s-maxage=300, stale-while-revalidate=3600",
       },
     });
   } catch (error) {

@@ -1,6 +1,7 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import { getFileContent, getDriveEmbedUrl } from "../lib/github";
+import { getDriveEmbedUrl } from "../lib/github";
+import driveLinksData from "../../data/drive-links.json";
 
 // Enable ISR - revalidate every 5 minutes (300 seconds)
 export const revalidate = 300;
@@ -12,17 +13,14 @@ interface DriveLink {
   createdAt: string;
 }
 
-export default async function MemosPage() {
-  let links: DriveLink[] = [];
-  let error: string | null = null;
+interface DriveLinksData {
+  links: DriveLink[];
+}
 
-  try {
-    const data = await getFileContent();
-    links = data.links || [];
-  } catch (err) {
-    console.error("Error fetching links:", err);
-    error = "Failed to load memos. Please try again later.";
-  }
+export default function MemosPage() {
+  // Read from local JSON file - no API call needed
+  const data = driveLinksData as DriveLinksData;
+  const links = data.links || [];
 
   return (
     <div className="relative flex min-h-screen w-full flex-col pt-16">
@@ -39,11 +37,7 @@ export default async function MemosPage() {
             </p>
           </div>
 
-          {error ? (
-            <div className="bg-red-50 border border-red-200 rounded-xl p-6 text-center">
-              <p className="text-red-700">{error}</p>
-            </div>
-          ) : links.length === 0 ? (
+          {links.length === 0 ? (
             <div className="bg-background-alt rounded-xl p-12 text-center">
               <span className="material-symbols-outlined text-6xl text-text-primary/30 mb-4">
                 description
