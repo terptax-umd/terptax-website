@@ -5,14 +5,18 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="border-t border-slate-200 px-10 py-10">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div className="flex flex-col gap-4 md:col-span-2">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="flex flex-col gap-4 md:col-span-2 max-w-m">
           <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="TerpTax Logo" width={100} height={50} />
+            <Image src="/terptax_logo.png" alt="TerpTax Logo" width={100} height={50} />
           </div>
-          <p className="text-sm text-text-primary/70 max-w-sm">
-            A student-run nonprofit providing free tax preparation services to
-            the University of Maryland community.
+          <p className="text-sm text-text-primary/70">
+            A student-run independently incorporated nonprofit providing free
+            tax preparation services to the Maryland community. 
+            <br />
+            <strong>
+              We are not affiliated with the University of Maryland.
+            </strong>
             <br />
             <br />
             All our volunteers are undergraduate and graduate students from the

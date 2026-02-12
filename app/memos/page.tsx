@@ -3,9 +3,6 @@ import Footer from "../components/Footer";
 import { getDriveEmbedUrl } from "../lib/github";
 import driveLinksData from "../../data/drive-links.json";
 
-// Enable ISR - revalidate every 5 minutes (300 seconds)
-export const revalidate = 300;
-
 interface DriveLink {
   id: string;
   title: string;

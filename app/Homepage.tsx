@@ -6,7 +6,7 @@ export default function Homepage() {
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col pt-16">
       <NavBar />
-      <div className="layout-container flex h-full grow flex-col px-4">
+      <div className="layout-container flex h-full grow flex-col">
         <div className="flex flex-1 justify-center py-5">
           <div className="layout-content-container flex flex-col flex-1 w-full">
             <main>
@@ -15,10 +15,10 @@ export default function Homepage() {
                   <div className="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center">
                     <div className="flex flex-col gap-4 text-left">
                       <h1 className="text-text-primary text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                        Free, Simple Tax Help for the UMD Community.
+                        Free, Simple Tax Help for the Maryland Community.
                       </h1>
                       <h2 className="text-text-primary/80 text-base font-normal leading-normal @[480px]:text-lg @[480px]:font-normal @[480px]:leading-normal">
-                      We are a non-profit affiliated with UMD.
+                      We are an independently incorporated non-profit <strong>not affiliated with UMD.</strong>{" "}
                       Under the guidance of Professor Samuel Handwerger, CPA, TerpTax provides free tax preparation services to low to mid-income individuals in the University of Maryland, College Park community according to VITA/TCE guidelines. We will be taking appointments from February 10, 2026, through April 14, 2026.
                       </h2>
                     </div>
@@ -41,10 +41,10 @@ export default function Homepage() {
               <div className="bg-background-alt">
                 <div className="flex flex-col gap-10 px-4 py-16 @container w-full">
                   <div className="flex flex-col gap-4">
-                    <h1 className="text-text-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                    <h1 className="text-text-primary tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] text-center">
                       How It Works
                     </h1>
-                    <p className="text-text-primary/80 text-base font-normal leading-normal">
+                    <p className="text-text-primary/80 text-center font-normal leading-normal">
                       Getting your taxes done with TerpTax is easy. Follow these
                       simple steps to get started with our free service.
                     </p>
